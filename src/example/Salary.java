@@ -12,7 +12,13 @@ class Salary {
     private double pensionContribRate_1 = 0.039d;
     private double pensionContribRate_2 = 0.090d;
 
-    public Salary(int brutTotal) {
+    public Salary() { }
+
+    public double getBrutTotal() {
+        return brutTotal;
+    }
+
+    public void setBrutTotal(double brutTotal) {
         this.brutTotal = brutTotal;
     }
 
