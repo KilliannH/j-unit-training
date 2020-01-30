@@ -28,7 +28,8 @@ class Salary {
 
         contribAmount_1 = brutTotal * socialContribRate_1;
 
-     return contribAmount_1 + contribAmount_2;
+        // System.out.println("social amounts " + (double)Math.round((contribAmount_1 + contribAmount_2) * 100d) / 100d + "€");
+     return (double)Math.round((contribAmount_1 + contribAmount_2) * 100d) / 100d;
     }
 
     public double calculPensionContribs() {
@@ -40,10 +41,15 @@ class Salary {
             pensionContribAmount = pensionContribRate_2 * brutTotal;
         }
 
-        return pensionContribAmount;
+        // System.out.println("pension amount " + (double)Math.round(pensionContribAmount * 100d) / 100d + "€");
+        return (double)Math.round(pensionContribAmount * 100d) / 100d;
     }
 
     public double getNetTotal() {
-        return calculSocialContribs() + calculPensionContribs();
+        double socialContribs = calculSocialContribs();
+        double pensionContribs = calculPensionContribs();
+
+        // System.out.println("NET " + (double)Math.round((brutTotal - (socialContribs + pensionContribs)) * 100d) / 100d + "€");
+        return (double)Math.round((brutTotal - (socialContribs + pensionContribs)) * 100d) / 100d;
     }
 }
